@@ -1,0 +1,31 @@
+# {title}
+
+{#for category in categories}
+## {category.title}
+
+{category.description}
+
+{#for table in category.tables}
+## {table.type} {table.name}
+
+{table.remarks}
+
+| Column | Type | Size | Nullable | Description |
+| ------ | ---- | ---- | -------- | ----------- |
+{#for column in table.columns} 
+| {column.name} | {column.type} | {column.size} | {column.nullable} | {column.remarks} |
+{/for}
+
+| Index | Unique | Columns | References |
+| ----- | ------ | ------- | ---------- |
+{#for idx in table.indexes.values}
+| {idx.name} | {idx.unique} | {idx.columns} | {idx.referencesTable} |
+{/for}
+
+```sql
+{table.sql}
+```
+
+{/for}
+{/for}
+

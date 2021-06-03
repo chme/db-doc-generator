@@ -1,0 +1,18 @@
+quarkus:
+  log:
+    level: DEBUG
+  datasource:
+    db-kind: h2
+    jdbc:
+      url: jdbc:h2:mem:myDB;INIT=RUNSCRIPT FROM 'classpath:schema.sql'
+
+output:
+  title: My Database
+  categories:
+    - name: default
+      title: Tables
+      description: Tables and views
+      default: true
+  tables:
+    - name: ""
+  file: mydatabase.md
